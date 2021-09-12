@@ -1,6 +1,7 @@
 #!/bin/bash
 FILES=*.pdf
 
+echo Converting the files into pdf
 for f in $FILES
 do
 	echo "Processing $f file..."
