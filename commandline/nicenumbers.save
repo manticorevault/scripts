@@ -1,0 +1,56 @@
+#!/bin/bash
+
+#Nice Number Script: Given a number, shows it in comma-separated form.
+#Expects a decimal point delimiter and thousand delimiter to be
+#instantiated. 
+
+
+	#Check if the number has more than just the integer part.
+	if [ "$decimal" != "$1" ] ; then
+		result="${DD:= '.'}$decimal"
+	fi
+
+	thousands=$integer
+
+	while [ $thousands -gt 999 ] ; do
+		remainder=$(($thousands % 1000))  	
+
+		while [ ${#remainder} -lt 3 ] ; do
+			remainder="0$remainder"
+		done
+
+		result="${TD:=","}${remainder}${result}"
+		thousands=$(($thousands / 1000 ))
+	done
+
+	nicenum="${thousands}${results}"
+
+	if [ ! -z $2 ] ; then
+		echo $nicenum
+	fi
+}
+
+DD="."
+TD=","
+
+while getopts "d:t:" opt ; do
+	case $opt in
+		d) DD="$OPTARG"	;;
+		t) TD="$OPTARG"	;;
+	esac
+done
+
+shift $(($OPTIND - 1))
+
+#Validate Inputs
+
+if [ $# -eq 0 ] ; then
+	echo "Usage: $(basename $0) [-d c] [-t c] numeric_value"
+	echo "	-d specifies the decimal point delimiter (default ".")"
+	echo "	-t specifies the thousands delimiter (default ",")"
+	exit 0
+fi
+
+nicenumber $1 1
+
+exit 0
