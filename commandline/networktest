@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "What's the target host?"
+read target
+echo "How many times you wanna ping the target host?"
+read pingcount
+
+echo "Testing your target: $target"
+
+ping -c $pingcount $target >> networktest.log
+traceroute $target >> networktest.log
+
+
+
+
+
+
