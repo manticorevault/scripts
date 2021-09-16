@@ -1,0 +1,11 @@
+#!/bin/bash
+
+URL=$1
+
+if curl --head --silent --fail $URL
+	then
+		echo "Your target URL exists"
+	else
+		echo "Your target URL doesn't exist"
+fi
+
