@@ -1,0 +1,9 @@
+#!/bin/bash
+
+target_folder='/home/arturserra/Documents/Pictures/Wallpapers/'
+
+echo "Your target folder is $target_folder"
+echo "Add here the link to the wallpaper you want to get"
+read wallpaper
+
+wget $wallpaper -P $target_folder
