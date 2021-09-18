@@ -1,9 +1,13 @@
 #!/bin/bash
 
-target_folder='/home/arturserra/Documents/Pictures/Wallpapers/'
+target_folder='/home/arturserra/Documents/Pictures/Wallpapers'
 
 echo "Your target folder is $target_folder"
 echo "Add here the link to the wallpaper you want to get"
 read wallpaper
 
-wget $wallpaper -P $target_folder
+wget -O $target_folder/wallpaper $wallpaper
+
+  
+# Set the downloaded wallpaper as the current wallpaper
+#gsettings set org.gnome.desktop.background picture-uri file:///$target_folder
