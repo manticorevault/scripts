@@ -10,4 +10,4 @@ wget -O $target_folder/wallpaper $wallpaper
 
   
 # Set the downloaded wallpaper as the current wallpaper
-#gsettings set org.gnome.desktop.background picture-uri file:///$target_folder
+gsettings set org.gnome.desktop.background picture-uri file:///$target_folder/wallpaper
