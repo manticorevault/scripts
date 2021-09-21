@@ -1,0 +1,20 @@
+#!/bin/bash
+
+folder1=$1
+folder2=$2
+
+read raw_size1 _ < <(du -b --max-depth=0 $folder1)
+read raw_size2 _ < <(du -b --max-depth=0 $folder2)
+
+read size1 _ < <(du -bh --max-depth=0 $folder1)
+read size2 _ < <(du -bh --max-depth=0 $folder2)
+
+if [[ "$raw_size1" -lt "$raw_size2" ]]; then
+	echo "The $folder2 ($size2) is bigger than the $folder1 ($size1)."
+elif [[ "$raw_size1" -gt "$raw_size2" ]] ; then
+	echo "The $folder1 ($size1) is bigger than the $folder2 ($size2)."
+elif [[ "$raw_size1" -eq "$raw_size2" ]] ; then
+	echo "Both sizes $folder1 and $folder2 are the same size ($size1)"
+fi
+
+
