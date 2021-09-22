@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#This script run detailed system information and
+#saves it as a file.
+
+mkdir -p ~/Documents/backup/systeminfo
+
+cd ~/Documents/backup/systeminfo
+
+touch sysinfo.txt
+
+uname -a > sysinfo.txt
+sudo lshw -short >> sysinfo.txt
+lscpu >> sysinfo.txt
+lsblk -a >> sysinfo.txt
+lsusb >> sysinfo.txt
+lspci -t >> sysinfo.txt
+sudo fdisk -l >> sysinfo.txt
+sudo dmidecode -t memory >> sysinfo.txt
+sudo dmidecode -t system >> sysinfo.txt
+sudo dmidecode -t bios >> sysinfo.txt
+sudo dmidecode -t processor >> sysinfo.txt
