@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Add task
+
+if [ $1 = "add" ] ; then
+	echo "$2" >> /home/arturserra/Documents/todo.txt
+	exit 0 
+elif [ $1 = "show" ] ; then
+	cat -n /home/arturserra/Documents/todo.txt
+	exit 0
+elif [ $1 = "delete" ] ; then
+	sed -i $2d /home/arturserra/Documents/todo.txt
+	exit 0
+fi
+	
