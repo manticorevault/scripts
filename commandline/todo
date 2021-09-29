@@ -1,9 +1,11 @@
 #!/bin/bash
 
+data=$(date '+%A, %B %d, %Y.')
+
 # Add task
 
 if [ $1 = "add" ] ; then
-	echo "$2" >> /home/arturserra/Documents/todo.txt
+	echo "$2" "on $data" >> /home/arturserra/Documents/todo.txt
 	exit 0 
 elif [ $1 = "show" ] ; then
 	cat -n /home/arturserra/Documents/todo.txt
