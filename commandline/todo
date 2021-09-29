@@ -10,7 +10,7 @@ if [ $1 = "add" ] ; then
 elif [ $1 = "show" ] ; then
 	cat -n /home/arturserra/Documents/todo.txt
 	exit 0
-elif [ $1 = "delete" ] ; then
+elif [ $1 = "del" ] ; then
 	sed -i $2d /home/arturserra/Documents/todo.txt
 	exit 0
 fi
