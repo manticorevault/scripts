@@ -1,11 +1,12 @@
 #!/bin/bash
 
 data=$(date '+%A, %B %d, %Y.')
+user=$(whoami)
 
 # Add task
 
 if [ $1 = "add" ] ; then
-	echo "$2" "on $data" >> /home/arturserra/Documents/todo.txt
+	echo  "$user: $2 on $data" >> /home/arturserra/Documents/todo.txt
 	exit 0 
 elif [ $1 = "show" ] ; then
 	cat -n /home/arturserra/Documents/todo.txt
