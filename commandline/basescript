@@ -3,7 +3,7 @@
 script=$1
 
 touch $script
-echo !#/bin/bash > $script
+echo #!/bin/bash > $script
 
 sudo chmod 755 $script
 
