@@ -2,17 +2,19 @@
 
 data=$(date '+%A, %B %d, %Y.')
 user=$(whoami)
+
+comm="$1"
 task="$2"
 
 # Add task
 
-if [ $1 = "add" ] ; then
+if [ $comm = "add" ] ; then
 	echo  "$user: $task on $data" >> /home/arturserra/Documents/todo.txt
 	exit 0 
-elif [ $1 = "show" ] ; then
+elif [ $comm = "show" ] ; then
 	cat -n /home/arturserra/Documents/todo.txt
 	exit 0
-elif [ $1 = "del" ] ; then
+elif [ $comm = "del" ] ; then
 	sed -i $2d /home/arturserra/Documents/todo.txt
 	exit 0
 fi
