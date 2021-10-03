@@ -1,1 +1,12 @@
 #!/bin/bash
+
+comm="$1"
+feed="$2"
+
+if [ $comm="add" ] ; then
+	echo "$feed" >> /home/arturserra/.newsboat/urls
+	exit 0
+elif [ $comm="show" ] ; then
+	exec ls -l
+	
+fi
