@@ -1,12 +1,15 @@
 #!/bin/bash
 
-comm="$1"
-feed="$2"
+comm=$1
+feed=$2
 
 if [ $comm="add" ] ; then
 	echo "$feed" >> /home/arturserra/.newsboat/urls
-	exit 0
-elif [ $comm="show" ] ; then
-	exec ls -l
-	
+	echo "New RSS feed added successfully. Launching Newsboat"
+	sleep 2
+elif [ $1="show" ] ; then
+	echo "Launching Newsboat"
+	sleep 1
 fi
+
+newsboat -ru /home/arturserra/.newsboat/urls
